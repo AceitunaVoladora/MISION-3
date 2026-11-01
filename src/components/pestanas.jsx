@@ -1,16 +1,16 @@
-export default function Pestanas({totalFav, onCambiar}) {
+export default function Pestanas({vista, totalFav, onCambiar}) {
     return (
         <nav id="pestanas">
             <button
                 type="button"
-                className="pestana"
+                className={`pestana${vista === "busqueda" ? " activa": ""}`}
                 onClick={() => onCambiar("busqueda")}
             >
                Busqueda 
             </button>
             <button
                 type="button"
-                className="pestana"
+                className={`pestana${vista === "busqueda" ? " activa": ""}`}
                 onClick={() => onCambiar("favoritos")}
             >
                 Favoritos ({totalFav})

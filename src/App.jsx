@@ -1,11 +1,11 @@
 import { useState } from "react";
-import Busqueda from "./components/render/busqueda";
-import Estadisticas from "./components/render/estadisticas";
-import Resultados from "./components/render/resultados";
-import { useLocalStorage } from "./components/hooks/useLocalStorage";
-import { useBusqueda } from "./components/hooks/useBusqueda";
+import Busqueda from "./components/busqueda";
+import Estadisticas from "./components/estadisticas";
+import Resultados from "./components/resultados";
+import { useLocalStorage } from "./hooks/useLocalStorage";
+import { useBusqueda } from "./hooks/useBusqueda";
 import Favoritos from "./components/favoritos";
-import Pestanas from "./components/pestanas";
+import Pestanas from "./components/pestanas"
 
 export default function App(){
     const [consulta, setConsulta] = useLocalStorage("sonora:consulta", null);
@@ -39,7 +39,7 @@ export default function App(){
                 <Busqueda consultaIni = {consulta} onBuscar = {buscar}/>
             </section>
 
-            <Pestanas totalFav = {favoritos.length} onCambiar = {cambiarVista}/>
+            <Pestanas vista = {vista} totalFav = {favoritos.length} onCambiar = {cambiarVista}/>
 
             {vista === "busqueda" ? (
                 <>
@@ -50,24 +50,20 @@ export default function App(){
                         idsFav = {idsFav}
                         sonandoId = {sonandoId}
                         onReproducir = {setSonandoId}
-                        onFavorito = {alternarFav}
+                        onFav = {alternarFav}
                     />
                 </>
             ) : (
                 <>
                     <Estadisticas items = {favoritos} etiqueta = "Favoritos"/>
                     <Favoritos 
-                        fase = {favoritos}
+                        items = {favoritos}
                         sonandoId = {sonandoId}
                         onReproducir = {setSonandoId}
-                        onFavorito = {alternarFav}
+                        onFav = {alternarFav}
                     /> 
                 </>
-            )
-        
-            };
-
-            
+            )}
         </div>
     );
 }
