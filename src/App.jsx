@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Busqueda from "./components/render/busqueda";
 import Estadisticas from "./components/render/estadisticas";
-import Resultados from "./components/render/resultados.jsx";
+import Resultados from "./components/render/resultados";
 import { useLocalStorage } from "./components/hooks/useLocalStorage";
 import { useBusqueda } from "./components/hooks/useBusqueda";
 

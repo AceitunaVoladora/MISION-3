@@ -1,11 +1,11 @@
 import {calcularEstadisticas} from "../logica/logica";
-import {formatearDuracion, generoMasComun} from "../logica/estadisticas";
+import {calcularDuracion, generoComun} from "../logica/estadisticas";
 
 export default function Estadisticas({items}){
     if(items.length === 0) return null;
 
     const {duracionTotal, generos} = calcularEstadisticas(items);
-    const generoTop = generoMasComun(generos);
+    const generoTop = generoComun(generos);
 
     return (
         <dl className="estadisticas">
@@ -16,7 +16,7 @@ export default function Estadisticas({items}){
             {duracionTotal > 0 && (
                 <div>
                     <dt>Duración total</dt>
-                    <dd>{formatearDuracion(duracionTotal)}</dd>
+                    <dd>{calcularDuracion(duracionTotal)}</dd>
                 </div>
             )}
             {generoTop && (

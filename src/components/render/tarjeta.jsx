@@ -1,12 +1,7 @@
-import { useRef, useEffect} from "react";
+import { useState, useRef, useEffect} from "react";
 
-export default function Tarjeta({
-    item,
-    esFavorito,
-    onAlterarFavorito,
-    sonando,
-    onReproducir,
-}) {
+export default function Tarjeta({item, sonando, onReproducir}) {
+    const [imagenRota, setImagenRota] = useState(false);
     const audioRef = useRef(null);
 
     useEffect(() => {
@@ -15,40 +10,26 @@ export default function Tarjeta({
 
     return (
         <article className="tarjeta">
-            {item.imagen ? (
-                <img src = {item.imagen} alt = {`Portada de ${item.titulo}`}/>
-            ) : (
-                <div className="portadaVacia">
-                    {item.titulo.charAt(0)}
-                </div>
+            {item.imagen && !imagenRota && (
+                <img src = {item.imagen} alt = {`Portada de ${item.titulo}`} onError={() => setImagenRota(true)}/>
             )}
             <div className="tarjetaCuerpo">
-                <h3>{item.titulo}</h3>
+                <h3>{item.url ? (
+                    <a href={item.url} target="_blank" rel="noopener noreferrer">{item.titulo}</a>
+                ) : (
+                    item.titulo
+                )}</h3>
+                
                 <p>{item.subtitulo}</p>
 
                 {item.preview && 
                     <audio 
                         ref = {audioRef} 
-                        constrols 
+                        controls 
                         src = {item.preview}
-                        onPlay={() => onReproducir(item.clave)}
+                        onPlay={() => onReproducir(item.id)}
                     />
                 }
-
-                <div className="tarjetaAcciones">
-                    <button
-                        type="button"
-                        className={esFavorito ? "favorito activo" : "favorito"}
-                        onClick = {() => onAlterarFavorito(item)}
-                    >
-                        {esFavorito ? "★ Guardado" : "☆ Guardar"}
-                    </button>
-                    {item.url && (
-                        <a href={item.url} target="_blanck" rel = "noreferrer">
-                            Ver en iTunes
-                        </a>
-                    )}
-                </div>
             </div>
         </article>
     );
