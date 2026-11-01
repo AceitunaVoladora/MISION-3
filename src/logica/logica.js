@@ -44,16 +44,3 @@ export function presentarResultados(resultados, tipo){
             ...item, 
             imagen: item.imagen?.replace(TAM_INI, TAM_FIN)}));
 }
-
-export function calcularEstadisticas(items) {
-    return items.reduce(
-        (acc, item) => {
-            acc.duracionTotal += item.duracion; //suma de duracion
-            if (item.genero) {
-                acc.generos[item.genero] = (acc.generos[item.genero] ?? 0) + 1; //si hay genero suma
-            }
-            return acc;
-        },
-        { duracionTotal: 0, generos: {} }
-    );
-}

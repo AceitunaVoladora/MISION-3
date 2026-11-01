@@ -154,3 +154,66 @@ h1{
   width: 100%;
   margin-top: auto;
 }
+
+/* ---------- Pestañas ---------- */
+#pestanas {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.pestana {
+  padding: 0.6rem 1rem;
+  font-family: 'fuenteTexto', sans-serif;
+  color: var(--textoSecundario);
+  background-color: var(--cajas);
+  border: 1px solid var(--bordes);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.pestana:hover {
+  background-color: var(--cajasHover);
+}
+
+.pestana[aria-current="page"] {
+  color: var(--textoPrincipal);
+  border-color: var(--colorPrincipal);
+}
+
+.pestana:focus-visible {
+  outline: 2px solid var(--colorSecundario);
+  outline-offset: 2px;
+}
+
+.tarjetaCabecera {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.botonFavorito {
+  padding: 0;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--textoSecundario);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.botonFavorito:hover {
+  color: var(--colorSecundario);
+  transform: scale(1.15);
+}
+
+.botonFavorito.activo {
+  color: var(--colorSecundario);
+}
+
+.botonFavorito:focus-visible {
+  outline: 2px solid var(--colorSecundario);
+  outline-offset: 2px;
+}

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect} from "react";
 
-export default function Tarjeta({item, sonando, onReproducir}) {
+export default function Tarjeta({item, sonando, esFav, onReproducir, onFav}) {
     const [imagenRota, setImagenRota] = useState(false);
     const audioRef = useRef(null);
 
@@ -13,6 +13,7 @@ export default function Tarjeta({item, sonando, onReproducir}) {
             {item.imagen && !imagenRota && (
                 <img src = {item.imagen} alt = {`Portada de ${item.titulo}`} onError={() => setImagenRota(true)}/>
             )}
+
             <div className="tarjetaCuerpo">
                 <h3>{item.url ? (
                     <a href={item.url} target="_blank" rel="noopener noreferrer">{item.titulo}</a>
@@ -30,6 +31,14 @@ export default function Tarjeta({item, sonando, onReproducir}) {
                         onPlay={() => onReproducir(item.id)}
                     />
                 }
+
+                <button
+                    type="button"
+                    className={`botonFav${esFav ? " activo" : ""}`}
+                    onClick={() => onFav(item)}
+                >
+                    {esFav ? "★ Guardado" : "☆ Guardar"}
+                </button>
             </div>
         </article>
     );

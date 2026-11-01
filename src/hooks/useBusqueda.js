@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { buscarContenido } from "../api-itunes";
+import {buscarContenido} from "../api/api-itunes"
 import { presentarResultados } from "../logica/logica";
 
 export function useBusqueda(consulta) {
