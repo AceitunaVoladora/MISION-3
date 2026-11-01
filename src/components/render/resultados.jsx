@@ -1,7 +1,7 @@
 import Mensaje from "./mensaje";
 import Tarjeta from "./tarjeta";
 
-export default function Rusultados({fase, items, sonandoId, onReproducir}) {
+export default function Resultados({fase, items, sonandoId, onReproducir}) {
     return <section id="resultado">{pintar(fase, items, sonandoId, onReproducir)}</section>
 }
 
@@ -14,7 +14,7 @@ function pintar(fase, items, sonandoId, onReproducir){
     return (
         items.map((item) => (
             <Tarjeta
-                key={items.id}
+                key={item.id}
                 item = {item}
                 sonando={sonandoId === item.id}
                 onReproducir={onReproducir}
