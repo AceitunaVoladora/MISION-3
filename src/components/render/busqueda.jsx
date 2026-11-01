@@ -10,7 +10,7 @@ export default function Busqueda({consultaIni, onBuscar}) {
     }
 
     return (
-        <form className="barraBusqueda" onSubmit={manejarEnvio} role="search">
+        <form id="barraBusqueda" onSubmit={manejarEnvio} role="search">
             <select id="tipoBusqueda" value={tipo} onChange={(e) => setTipo(e.target.value)}>
                 <option value="cancion">Canción</option>
                 <option value="artista">Artista</option>

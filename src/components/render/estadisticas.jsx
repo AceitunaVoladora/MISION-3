@@ -8,23 +8,14 @@ export default function Estadisticas({items}){
     const generoTop = generoComun(generos);
 
     return (
-        <dl className="estadisticas">
-            <div>
-                <dt>Resultados</dt>
-                <dd>{items.length}</dd>
-            </div>
+        <section id="estadisticas">
+            <p className="estadistica">Resultados: {items.length}</p>
             {duracionTotal > 0 && (
-                <div>
-                    <dt>Duración total</dt>
-                    <dd>{calcularDuracion(duracionTotal)}</dd>
-                </div>
+                <p className="estadistica">Duración total: {calcularDuracion(duracionTotal)}</p>
             )}
             {generoTop && (
-                <div>
-                    <dt>Género más común</dt>
-                    <dd>{generoTop}</dd>
-                </div>
+                <p className="estadistica">Género más común: {generoTop}</p>
             )}
-        </dl>
+        </section>
     );
 }

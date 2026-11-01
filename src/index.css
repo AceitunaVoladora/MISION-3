@@ -36,7 +36,7 @@ h1{
     padding-inline: 2rem;
 }
 
-#barra-busqueda{
+#barraBusqueda{
   display: flex;
   gap: 1rem;
   padding: 1rem;
@@ -45,40 +45,40 @@ h1{
   border-radius: 5px;
 }
 
-#tipo-busqueda, #contenido-busqueda, #boton-busqueda {
+#tipoBusqueda, #contenidoBusqueda, #botonBusqueda {
   font-family: 'fuenteTexto', sans-serif;
   border: 0;
   border-radius: 8px;
   color: var(--textoPrincipal);
 }
 
-#tipo-busqueda{
+#tipoBusqueda{
   padding: 1rem;
   background: var(--cajasHover);
   cursor: pointer;
 }
 
-#contenido-busqueda{
+#contenidoBusqueda{
   flex: 1;
   padding: 1rem;
   background-color: transparent;
 }
 
-#contenido-busqueda::placeholder {
+#contenidoBusqueda::placeholder {
   color: var(--textoSecundario);
 }
 
-#boton-busqueda{
+#botonBusqueda{
   padding: 1rem;
   background-color: var(--colorPrincipal);
   cursor: pointer;
 }
 
-#boton-busqueda:hover {
+#botonBusqueda:hover {
   background: var(--cajasHover);
 }
 
-#tipo-busqueda:focus-visible, #boton-busqueda:focus-visible, #contenido-busqueda:focus{
+#tipoBusqueda:focus-visible, #botonBusqueda:focus-visible, #contenidoBusqueda:focus{
   outline: 2px solid var(--colorSecundario);
   outline-offset: 2px;
 }
